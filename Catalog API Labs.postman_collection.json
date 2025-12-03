@@ -1,0 +1,3254 @@
+{
+	"info": {
+		"_postman_id": "509956e3-6645-4975-befc-7eef148f4ddf",
+		"name": "Catalog API Labs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5974844",
+		"_collection_link": "https://lunar-sunset-473461.postman.co/workspace/BigCommerce-Dev-EDU~4b3675d4-fdbc-4360-898f-17d425e15d10/collection/5974844-509956e3-6645-4975-befc-7eef148f4ddf?action=share&source=collection_link&creator=5974844"
+	},
+	"item": [
+		{
+			"name": "Products Basics",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products"
+							],
+							"query": [
+								{
+									"key": "include",
+									"value": "variants,images",
+									"disabled": true
+								},
+								{
+									"key": "include_fields",
+									"value": "sku,name,price",
+									"disabled": true
+								},
+								{
+									"key": "exclude_fields",
+									"value": "description,categories",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "5",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "price:max",
+									"value": "100",
+									"disabled": true
+								},
+								{
+									"key": "id:in",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product Channel Assignments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/channel-assignments",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								"channel-assignments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Channel Assignments",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n    \"product_id\": {PRODUCT ID},\n    \"channel_id\": {PRODUCT ID}\n}]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/channel-assignments",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								"channel-assignments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Simple Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Simple Shirt\",\n  \"price\": \"10.00\",\n  \"categories\": [\n    {CATEGORY ID}\n  ],\n  \"weight\": 4,\n  \"type\": \"physical\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"price\": 10.25,\n    \"description\": \"<h4>Great T-shirt</h4>The best t-shirt ever.\",\n    \"weight\": 1.20\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Variants and Modifiers",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Shirt\",\n  \"price\": \"10.00\",\n  \"categories\": [\n    {CATEGORY ID}\n  ],\n  \"weight\": 4,\n  \"type\": \"physical\",\n  \"inventory_tracking\": \"variant\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Variant Option (Size)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"display_name\": \"Size\",\n\t\"type\": \"rectangles\",\n\t\"option_values\": [\n        {\n            \"is_default\": true,\n            \"label\": \"Large\"\n        },\n        {\n            \"label\": \"Medium\"\n        }\n    ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/options",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"options"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Variant Option (Color)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"display_name\": \"Color\",\n\t\"type\": \"rectangles\",\n\t\"option_values\": [\n        {\n            \"is_default\": true,\n            \"label\": \"Red\"\n        },\n        {\n            \"label\": \"Blue\"\n        }\n    ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/options",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"options"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product Options",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/options",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"options"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Variant (Large Red)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"sku\": \"SKU-R-LG\",\n   \"inventory_level\": 5,\n   \"option_values\": [\n       {\n            \"id\": {VALUE ID},\n            \"option_id\": {OPTION ID}\n        },\n        {\n            \"id\": {VALUE ID},\n            \"option_id\": {OPTION ID}\n       }\n   ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/variants",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"variants"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Variant (Large Blue)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"sku\": \"SKU-B-LG\",\n   \"price\": 12,\n   \"inventory_level\": 7,\n   \"option_values\": [\n       {\n            \"id\": {VALUE ID},\n            \"option_id\": {OPTION ID}\n        },\n        {\n            \"id\": {VALUE ID},\n            \"option_id\": {OPTION ID}\n       }\n   ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/variants",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"variants"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Variant (Medium Red)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"sku\": \"SKU-R-MD\",\n   \"inventory_level\": 5,\n   \"option_values\": [\n       {\n            \"id\": {VALUE ID},\n            \"option_id\": {OPTION ID}\n        },\n        {\n            \"id\": {VALUE ID},\n            \"option_id\": {OPTION ID}\n       }\n   ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/variants",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"variants"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Variant (Medium Blue)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"sku\": \"SKU-B-MD\",\n   \"price\": 12,\n   \"inventory_level\": 7,\n   \"option_values\": [\n       {\n            \"id\": {VALUE ID},\n            \"option_id\": {OPTION ID}\n        },\n        {\n            \"id\": {VALUE ID},\n            \"option_id\": {OPTION ID}\n       }\n   ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/variants",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"variants"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Variants",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/variants",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"variants"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product and Variants",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Awesome Shirt\",\n    \"type\": \"physical\",\n    \"price\": 10.25,\n    \"description\": \"<h4>Great shirt</h4>The best shirt ever.\",\n    \"weight\": 1.20,\n    \"categories\": [\n        {CATEGORY ID}\n    ],\n    \"variants\": [\n        {\n            \"sku\": \"AWE-R-SM\",\n            \"option_values\": [\n                {\n                    \"option_display_name\": \"Color\",\n                    \"label\": \"Red\"\n                },\n                {\n                    \"option_display_name\": \"Size\",\n                    \"label\": \"Small\"\n                }\n            ]\n        },\n        {\n            \"sku\": \"AWE-B-SM\",\n            \"option_values\": [\n                {\n                    \"option_display_name\": \"Color\",\n                    \"label\": \"Blue\"\n                },\n                {\n                    \"option_display_name\": \"Size\",\n                    \"label\": \"Small\"\n                }\n            ]\n        },\n        {\n            \"sku\": \"AWE-R-MD\",\n            \"option_values\": [\n                {\n                    \"option_display_name\": \"Color\",\n                    \"label\": \"Red\"\n                },\n                {\n                    \"option_display_name\": \"Size\",\n                    \"label\": \"Medium\"\n                }\n            ]\n        },\n        {\n            \"sku\": \"AWE-B-MD\",\n            \"option_values\": [\n                {\n                    \"option_display_name\": \"Color\",\n                    \"label\": \"Blue\"\n                },\n                {\n                    \"option_display_name\": \"Size\",\n                    \"label\": \"Medium\"\n                }\n            ]\n        },\n        {\n            \"sku\": \"AWE-R-LRG\",\n            \"price\": 10.50,\n            \"weight\": 1.25,\n            \"option_values\": [\n                {\n                    \"option_display_name\": \"Color\",\n                    \"label\": \"Red\"\n                },\n                {\n                    \"option_display_name\": \"Size\",\n                    \"label\": \"Large\"\n                }\n            ]\n        },\n        {\n            \"sku\": \"AWE-B-LG\",\n            \"price\": 10.50,\n            \"weight\": 1.25,\n            \"option_values\": [\n                {\n                    \"option_display_name\": \"Color\",\n                    \"label\": \"Blue\"\n                },\n                {\n                    \"option_display_name\": \"Size\",\n                    \"label\": \"Large\"\n                }\n            ]\n        }\n    ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product Modifier",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\": \"checkbox\",\n  \"required\": false,\n  \"config\": {\n    \"default_value\": \"Yes\",\n    \"checked_by_default\": false,\n    \"checkbox_label\": \"Check for Donation\"\n  },\n  \"display_name\": \"Add a $5 Donation\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/modifiers",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"modifiers"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product Modifiers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/modifiers",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"modifiers"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product Modifier",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"option_values\": [\n        {\n            \"id\": {VALUE ID},\n            \"is_default\": false,\n            \"adjusters\": {\n                \"price\": {\n                    \"adjuster\": \"relative\",\n                    \"adjuster_value\": 5\n                }\n            }\n        }\n    ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/modifiers/:modifier_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"modifiers",
+								":modifier_id"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								},
+								{
+									"key": "modifier_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Brands and Categories",
+			"item": [
+				{
+					"name": "Create Brand",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"My Brand\",\n  \"custom_url\": {\n    \"url\": \"/brands/my-brand\"\n  }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/brands",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product (Brand)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"brand_id\": {BRAND ID}\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Brands",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/brands",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Products in Brand",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products?brand_id=",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products"
+							],
+							"query": [
+								{
+									"key": "brand_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category Trees",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/trees",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"trees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n\t   \"name\": \"Apparel\",\n\t   \"description\": \"A category for clothing\",\n\t   \"sort_order\": 1,\n\t   \"is_visible\": true,\n\t   \"default_product_sort\": \"use_store_settings\",\n\t   \"parent_id\": 0,\n\t   \"tree_id\": 1\n}]\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/trees/categories",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"trees",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Category (Child)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n\t   \"name\": \"Shirts\",\n\t   \"description\": \"A category with shirts\",\n\t   \"sort_order\": 1,\n\t   \"is_visible\": true,\n\t   \"default_product_sort\": \"use_store_settings\",\n\t   \"parent_id\": {CATEGORY ID},\n\t   \"tree_id\": {TREE ID}\n}]\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/trees/categories",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"trees",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n    \"category_id\": {CATEGORY ID},\n    \"search_keywords\": \"tshirt, shirt, top\"\n}]\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/trees/categories",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"trees",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product (Category)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"categories\": [\n    {CATEGORY ID}\n  ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Products in Category",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products?categories:in=",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products"
+							],
+							"query": [
+								{
+									"key": "categories:in",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Categories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/trees/categories?tree_id:in=",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"trees",
+								"categories"
+							],
+							"query": [
+								{
+									"key": "tree_id:in",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category Tree",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/trees/:tree_id/categories?depth=3",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"trees",
+								":tree_id",
+								"categories"
+							],
+							"query": [
+								{
+									"key": "depth",
+									"value": "3"
+								}
+							],
+							"variable": [
+								{
+									"key": "tree_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Images, Videos, Custom Fields",
+			"item": [
+				{
+					"name": "Create Product Image",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"image_url\": \"https://printify.com/wp-content/uploads/2020/03/Asset-125@4x.png\",\n   \"is_thumbnail\": true\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/images",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"images"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product Image (File)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image_file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/images",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"images"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product Video",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"My Video\",\n  \"description\": \"Product Video\",\n  \"sort_order\": 1,\n  \"type\": \"youtube\",\n  \"video_id\": \"C0DPdy98e4c\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/videos",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"videos"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Custom Field",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Material\",\n  \"value\": \"100% Cotton\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/custom-fields",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"custom-fields"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bulk Pricing",
+			"item": [
+				{
+					"name": "Add Bulk Pricing (Fixed amount off)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quantity_min\": 5,\n    \"quantity_max\": 0,\n    \"type\": \"price\",\n    \"amount\": 3\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/bulk-pricing-rules",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"bulk-pricing-rules"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Bulk Pricing (Fixed price)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quantity_min\": 5,\n    \"quantity_max\": 0,\n    \"type\": \"fixed\",\n    \"amount\": 3\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/bulk-pricing-rules",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"bulk-pricing-rules"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Bulk Pricing (Percentage)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quantity_min\": 5,\n    \"quantity_max\": 0,\n    \"type\": \"percent\",\n    \"amount\": 3\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/bulk-pricing-rules",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"bulk-pricing-rules"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bulk Pricing",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/bulk-pricing-rules",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"bulk-pricing-rules"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Bulk Pricing",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quantity_max\": 9\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/bulk-pricing-rules/:rule_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"bulk-pricing-rules",
+								":rule_id"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								},
+								{
+									"key": "rule_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Complex Rules",
+			"item": [
+				{
+					"name": "Create Product Modifier",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\": \"checkbox\",\n  \"required\": false,\n  \"config\": {\n    \"default_value\": \"Yes\",\n    \"checked_by_default\": false,\n    \"checkbox_label\": \"Check to receive a sticker\"\n  },\n  \"display_name\": \"Add an 'I Donated' sticker\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/modifiers",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"modifiers"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Complex Rule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"enabled\": true,\n   \"purchasing_disabled\": true,\n   \"purchasing_disabled_message\": \"You must donate to receive a sticker\",\n   \"conditions\": [\n       {\n           \"modifier_id\": {MODIFIER ID},\n           \"modifier_value_id\": {VALUE ID}\n       },\n       {\n           \"modifier_id\": {MODIFIER ID},\n           \"modifier_value_id\": {VALUE ID}\n       }\n   ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/complex-rules",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"complex-rules"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Complex Rule (Modifier + Variant)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"enabled\": true,\n   \"price_adjuster\": {\n        \"adjuster\": \"relative\",\n        \"adjuster_value\": 2\n    },\n   \"conditions\": [\n       {\n           \"variant_id\": {VARIANT ID}\n       },\n       {\n           \"modifier_id\": {MODIFIER ID},\n           \"modifier_value_id\": {VALUE ID}\n       }\n   ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/complex-rules",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"complex-rules"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Complex Rules",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/complex-rules",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"complex-rules"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Metafields",
+			"item": [
+				{
+					"name": "Add Product Metafield",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"permission_set\": \"app_only\",\n  \"namespace\": \"My Inventory App\",\n  \"key\": \"location_id\",\n  \"value\": \"Shelf 3, Bin 5\",\n  \"description\": \"Where products are located\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/metafields",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"metafields"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product Metafields",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/metafields",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"metafields"
+							],
+							"query": [
+								{
+									"key": "namespace",
+									"value": "My%20Inventory%20App",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product Reviews",
+			"item": [
+				{
+					"name": "Create Product Review",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Great Product\",\n  \"text\": \"This shirt is awesome!\",\n  \"status\": \"approved\",\n  \"rating\": 5,\n  \"email\": \"janedoe@email.com\",\n  \"name\": \"Jane Doe\",\n  \"date_reviewed\": \"2024-01-01T19:37:13+00:00\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/reviews",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"reviews"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product Review (Unapproved)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"So-so Product\",\n  \"text\": \"This shirt is only okay\",\n  \"status\": \"pending\",\n  \"rating\": 3,\n  \"email\": \"johndoe@email.com\",\n  \"name\": \"John Doe\",\n  \"date_reviewed\": \"2024-01-01T15:17:13+00:00\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/reviews",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"reviews"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product Reviews",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/reviews",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"reviews"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "0",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product Review",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"approved\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/:product_id/reviews/:review_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products",
+								":product_id",
+								"reviews",
+								":review_id"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								},
+								{
+									"key": "review_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Products (Reviews)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products?include_fields=reviews_rating_sum,reviews_count",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"catalog",
+								"products"
+							],
+							"query": [
+								{
+									"key": "include_fields",
+									"value": "reviews_rating_sum,reviews_count"
+								},
+								{
+									"key": "id:in",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Price Lists",
+			"item": [
+				{
+					"name": "Create Price List",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"name\": \"Wholesale group\",\n   \"active\": false\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/pricelists",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"pricelists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign a Price List",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n   \"price_list_id\": {LIST ID},\n   \"customer_group_id\": {GROUP ID},\n   \"channel_id\": {CHANNEL ID}\n}]\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/pricelists/assignments",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"pricelists",
+								"assignments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Price Lists",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/pricelists",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"pricelists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Price Lists Assignments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/pricelists/assignments?price_list_id:in=",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"pricelists",
+								"assignments"
+							],
+							"query": [
+								{
+									"key": "price_list_id:in",
+									"value": ""
+								},
+								{
+									"key": "customer_group_id:in",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Price List",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"active\": true\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/pricelists/:price_list_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"pricelists",
+								":price_list_id"
+							],
+							"variable": [
+								{
+									"key": "price_list_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Price List Record (by Variant/Currency)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"price\": 6\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/pricelists/:price_list_id/records/:variant_id/:currency_code",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"pricelists",
+								":price_list_id",
+								"records",
+								":variant_id",
+								":currency_code"
+							],
+							"variable": [
+								{
+									"key": "price_list_id",
+									"value": ""
+								},
+								{
+									"key": "variant_id",
+									"value": ""
+								},
+								{
+									"key": "currency_code",
+									"value": "USD"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Price List Records (Batch by Pricelist)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"variant_id\": {VARIANT ID},\n        \"currency\": \"USD\",\n        \"price\": 6\n    },\n    {\n        \"variant_id\": {VARIANT ID},\n        \"currency\": \"USD\",\n        \"price\": 6\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/pricelists/:price_list_id/records",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"pricelists",
+								":price_list_id",
+								"records"
+							],
+							"variable": [
+								{
+									"key": "price_list_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Price List Records",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/pricelists/:price_list_id/records",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"pricelists",
+								":price_list_id",
+								"records"
+							],
+							"variable": [
+								{
+									"key": "price_list_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Price List Record by Variant",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "{{v3_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.bigcommerce.com/stores/{{store_hash}}/v3/pricelists/:price_list_id/records/:variant_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bigcommerce",
+								"com"
+							],
+							"path": [
+								"stores",
+								"{{store_hash}}",
+								"v3",
+								"pricelists",
+								":price_list_id",
+								"records",
+								":variant_id"
+							],
+							"variable": [
+								{
+									"key": "price_list_id",
+									"value": ""
+								},
+								{
+									"key": "variant_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
