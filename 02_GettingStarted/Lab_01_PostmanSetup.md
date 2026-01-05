@@ -1,7 +1,5 @@
 # Lab - API Account and Postman Setup
 
-**Duration:** 30 minutes
-
 In order to work with Catalog API, you must have a proper setup in Postman (or another REST client). This lab will walk you through the steps needed to activate a free Postman account, create an OAuth token for your storefront, and correctly set up an environment in Postman. 
 
 ### Prerequisites
