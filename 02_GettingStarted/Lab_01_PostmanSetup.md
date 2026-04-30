@@ -4,7 +4,7 @@ In order to work with Catalog API, you must have a proper setup in Postman (or a
 
 ### Prerequisites
 
-* A BigCommerce [sandbox store](https://docs.bigcommerce.com/developer/docs/start/about/sandboxes) or [trial store](https://www.bigcommerce.com/essentials/), or a full production store
+* A BigCommerce [sandbox store](https://docs.bigcommerce.com/developer/docs/overview/sandboxes) or [trial store](https://www.bigcommerce.com/essentials/), or a full production store
 * Basic knowledge of APIs
 * [Postman](https://www.postman.com/) or a similar API client
 * Access to a user account with Store Owner permissions
